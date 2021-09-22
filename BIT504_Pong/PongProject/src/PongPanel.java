@@ -31,6 +31,8 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 	private final static int WINNER_FONT_SIZE = 40;
 	private final static Font WINNER_FONT = new Font("Serif", Font.BOLD, WINNER_FONT_SIZE);
 	private final static String WINNER_TEXT = "WIN!";
+	private static final Color FONT_COLOUR = new Color(242,190,61);
+
 	
 	public void createObjects() {
 		ball = new Ball(getWidth(), getHeight());
@@ -176,6 +178,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 		String leftScore = Integer.toString(playerOneScore);
 		String rightScore = Integer.toString(playerTwoScore);
 		g.setFont(SCORE_FONT);
+		g.setColor (FONT_COLOUR);
 		g.drawString(leftScore, X_PADDING, Y_PADDING);
 		g.drawString(rightScore, getWidth()-X_PADDING, Y_PADDING);
 	}
