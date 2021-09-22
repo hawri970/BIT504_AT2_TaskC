@@ -13,7 +13,7 @@ import java.awt.Font;
 
 public class PongPanel extends JPanel implements ActionListener, KeyListener {
 
-	private final static Color BACKGROUND_COLOUR = Color.black;
+	private final static Color BACKGROUND_COLOUR = new Color(82,161,109);
 	private final static int TIMER_DELAY = 5;
 	private Ball ball;
 	private Paddle playerOnePaddle, playerTwoPaddle;
@@ -31,11 +31,14 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 	private final static int WINNER_FONT_SIZE = 40;
 	private final static Font WINNER_FONT = new Font("Serif", Font.BOLD, WINNER_FONT_SIZE);
 	private final static String WINNER_TEXT = "WIN!";
+	private static final Color FONT_COLOUR = new Color(242,190,61);
+	private static final Color PLAYER_ONE_PADDLE_COLOUR = new Color(235,65,61);
+	private static final Color PLAYER_TWO_PADDLE_COLOUR = new Color(12,95,166);
 	
 	public void createObjects() {
 		ball = new Ball(getWidth(), getHeight());
-		playerOnePaddle = new Paddle(Player.One, getWidth(), getHeight());
-		playerTwoPaddle = new Paddle(Player.Two, getWidth(), getHeight());
+		playerOnePaddle = new Paddle(Player.One, getWidth(), getHeight(), PLAYER_ONE_PADDLE_COLOUR);
+		playerTwoPaddle = new Paddle(Player.Two, getWidth(), getHeight(), PLAYER_TWO_PADDLE_COLOUR);
 		addKeyListener(this);
 		setFocusable(true);
 		
@@ -176,6 +179,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 		String leftScore = Integer.toString(playerOneScore);
 		String rightScore = Integer.toString(playerTwoScore);
 		g.setFont(SCORE_FONT);
+		g.setColor (FONT_COLOUR);
 		g.drawString(leftScore, X_PADDING, Y_PADDING);
 		g.drawString(rightScore, getWidth()-X_PADDING, Y_PADDING);
 	}
