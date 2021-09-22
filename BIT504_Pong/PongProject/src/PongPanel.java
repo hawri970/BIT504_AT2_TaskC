@@ -32,12 +32,13 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 	private final static Font WINNER_FONT = new Font("Serif", Font.BOLD, WINNER_FONT_SIZE);
 	private final static String WINNER_TEXT = "WIN!";
 	private static final Color FONT_COLOUR = new Color(242,190,61);
-
+	private static final Color PLAYER_ONE_PADDLE_COLOUR = new Color(235,65,61);
+	private static final Color PLAYER_TWO_PADDLE_COLOUR = new Color(12,95,166);
 	
 	public void createObjects() {
 		ball = new Ball(getWidth(), getHeight());
-		playerOnePaddle = new Paddle(Player.One, getWidth(), getHeight());
-		playerTwoPaddle = new Paddle(Player.Two, getWidth(), getHeight());
+		playerOnePaddle = new Paddle(Player.One, getWidth(), getHeight(), PLAYER_ONE_PADDLE_COLOUR);
+		playerTwoPaddle = new Paddle(Player.Two, getWidth(), getHeight(), PLAYER_TWO_PADDLE_COLOUR);
 		addKeyListener(this);
 		setFocusable(true);
 		
